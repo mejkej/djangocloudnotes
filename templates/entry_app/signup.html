@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/entry.css' %}?v={{ version }}">
+    
+    <title>WELCOME TO CLOUD NOTES</title>
+</head>
+<body>
+    <header>
+        <h1>CLOUD NOTES</h1>
+    </header>
+
+    <main>        
+        <!--FORMS WRAPPER DIV-->
+        <div class="formsdiv">
+            <h2>Sign Up</h2>
+
+                <!--SIGN UP FORM-->
+                <form method="post" class="signupform">
+                
+                    {% csrf_token %}
+                    {% for field in signupform %}
+                    <p>{{ field }}</p>
+                    {% endfor %}
+
+                <button name="signupform" value="signupform" type="submit" class="submitbtn">Submit</button>
+
+                <h3>Already Signed Up?</h3>
+                <h4><a href="{% url 'signin' %}"> Sign In Now</a></h4>
+            </form>
+        </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+
+    </footer>
+
+<!--LINK TO JS-->
+<script src="{% static 'js/entry.js' %}"></script>
+</body>
+</html>

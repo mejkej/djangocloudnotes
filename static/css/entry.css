@@ -1,0 +1,85 @@
+/* BODY STYLING */
+body {
+    text-align:center;
+    background-image: url('../imgs/bgimg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Helvetica, sans-serif;
+    height:100vh;
+    width:100vw;
+}
+
+header {
+    position:relative;
+    margin-top: 10px;
+    margin:0 auto;
+    padding:5px;
+}
+
+main {
+    width:100%;
+    height:70%;
+    display:flex;
+    justify-content: space-around;
+    
+}
+
+h3, h2, h1 {
+    color:white;
+}
+
+a:visited {
+    color:white;
+}
+
+a {
+    color:white;
+    background-color: black;
+    padding:7px;
+    border-radius: 10%;
+}
+
+a:hover {
+    color:rgb(60, 218, 32);
+}
+
+/* div containing forms */
+.formsdiv {
+    position:relative;
+    border:5px solid black;
+    border-radius: 20%;
+    width:300px;
+    height:fit-content;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+/* global button style */
+button {
+    padding:6px;
+    background-color: black;
+    color:white;
+    border-radius: 10%;
+}
+
+
+/* btn on hover changes color */
+button:hover {
+    color:rgb(60, 218, 32);
+}
+
+
+.messages.error {
+    color:red;
+}   
+
+.messages.success {
+    color:green;
+}
