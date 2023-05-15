@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from django.contrib.auth.hashers import make_password
 from pathlib import Path
 import os
 import dj_database_url
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'entry_app',
+    'main_app',
     
 
 ]
@@ -100,11 +102,24 @@ DATABASES = {
         dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+# Custom User Authenticor
+AUTH_USER_MODEL = 'entry_app.CustomUser'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHash',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = []
+#!!AUTH_PASSWORD_VALIDATORS = []
 
 
 # Internationalization
