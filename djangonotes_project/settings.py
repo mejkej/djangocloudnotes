@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from django.contrib.auth.hashers import make_password
+
 from pathlib import Path
 import os
 import dj_database_url
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'entry_app',
     'main_app',
     
-
 ]
 
 
@@ -108,6 +107,8 @@ AUTH_USER_MODEL = 'entry_app.CustomUser'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+from django.contrib.auth.hashers import make_password
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',

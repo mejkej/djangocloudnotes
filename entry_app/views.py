@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import SignUpForm, SignInForm
+from django.core.exceptions import ValidationError
 
 
 def signup_view(request):
@@ -8,7 +9,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('main')
+            return redirect('entry_app/signin.html')
     else:
         form = SignUpForm()
 
@@ -26,7 +27,7 @@ def signin_view(request):
                 login(request, user)
                 return redirect('main')  # Redirect to main_app or another page after successful login
             else:
-                form.add_error(None, 'Invalid username or password')
+                raise ValidationError('Username or password incorrect.')
     else:
         form = SignInForm()
 
